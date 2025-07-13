@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "gusresearch.safety"
-        minSdk 21
+        minSdk 23
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -22,9 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 }
 
@@ -34,11 +39,23 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.2.0'
-    implementation 'org.tensorflow:tensorflow-lite-task-audio:0.4.0'
-    implementation 'org.tensorflow:tensorflow-lite-support:0.4.0'
-    implementation 'org.tensorflow:tensorflow-lite:2.10.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    //implementation 'com.google.firebase:firebase-crashlytics-buildtools:3.0.4'
+// latest stable as of now
+    // TensorFlow Lite
+    //implementation 'org.tensorflow:tensorflow-lite-task-audio:0.4.0'
+    //implementation 'org.tensorflow:tensorflow-lite-support:0.4.0'
+   // implementation 'org.tensorflow:tensorflow-lite:2.10.0'
+
+    def tflite_version = "2.10.0"  // Only for core TFLite
+
+    implementation "org.tensorflow:tensorflow-lite:$tflite_version"
+    implementation "org.tensorflow:tensorflow-lite-support:0.4.2"
+    implementation "org.tensorflow:tensorflow-lite-task-audio:0.4.2"
+
+
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
-

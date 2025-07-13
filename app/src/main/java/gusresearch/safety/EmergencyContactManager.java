@@ -2,8 +2,10 @@ package gusresearch.safety;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+//import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+///import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,9 @@ public class EmergencyContactManager {
         if (json == null) {
             return new ArrayList<>();
         }
-        Type type = new TypeToken<ArrayList<Contact>>() {}.getType();
+        //Type type = new TypeToken<ArrayList<Contact>>() {}.getType();
+        Type type = new com.google.gson.reflect.TypeToken<ArrayList<Contact>>() {}.getType();
+
         return gson.fromJson(json, type);
     }
 

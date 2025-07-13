@@ -1,7 +1,7 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -22,11 +22,8 @@
         android:background="#80000000"
         android:padding="8dp"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
-
-</RelativeLayout>
-
-
+        android:textSize="18sp"
+        android:text="Speed: 0 km/h" />
 
     <TextView
         android:id="@+id/soundDetectionTextView"
@@ -38,7 +35,8 @@
         android:background="#80000000"
         android:padding="8dp"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:text="Sound: none" />
 
     <TextView
         android:id="@+id/vibrationTextView"
@@ -50,5 +48,7 @@
         android:background="#80000000"
         android:padding="8dp"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:text="Vibration: 0 m/s²" />
 
+</RelativeLayout>
