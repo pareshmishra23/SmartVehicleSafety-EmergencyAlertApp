@@ -1,4 +1,4 @@
-package com.gusresearch.safety;
+package gusresearch.safety;
 
 import android.content.Context;
 import android.media.AudioRecord;
