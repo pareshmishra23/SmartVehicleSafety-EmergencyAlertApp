@@ -1,1 +1,43 @@
-welcome
+
+#!/bin/bash
+
+# -----------------------------
+# GUS Research Lab - Safe Merge Script
+# Merges Manus's fork into original repo using unrelated history merge
+# -----------------------------
+
+# Configuration
+ORIGINAL_REPO_URL="https://github.com/pareshmishra23/SmartVehicleSafety-EmergencyAlertApp.git"
+FORK_REPO_URL="https://github.com/GUS-Research-Lab/SmartVehicleSafety-EmergencyAlertApp.git"
+FORK_BRANCH="main"  # change to "master" if that's the default branch in the fork
+
+# Clone your original repo
+echo "Cloning original repo..."
+git clone $ORIGINAL_REPO_URL
+cd SmartVehicleSafety-EmergencyAlertApp || exit
+
+# Add Manus's fork as a remote
+echo "Adding forked repo as remote..."
+git remote add manus $FORK_REPO_URL
+
+# Fetch from the fork
+echo "Fetching code from Manus's fork..."
+git fetch manus
+
+# Merge forked branch using --allow-unrelated-histories
+echo "Merging Manus's code with unrelated histories allowed..."
+git merge manus/$FORK_BRANCH --allow-unrelated-histories
+
+# Prompt for manual conflict resolution
+echo "If there are any conflicts, resolve them manually and press Enter to continue..."
+read -p "Continue after resolving conflicts? (Press Enter)"
+
+# Add resolved files and commit if needed
+git add .
+git commit -m "Merged Manus's fork into original repo [unrelated histories]"
+
+# Push merged code to original GitHub
+echo "Pushing merged code to original GitHub repo..."
+git push origin main
+
+echo "✅ Merge complete! Check your repo at: https://github.com/pareshmishra23/SmartVehicleSafety-EmergencyAlertApp"
